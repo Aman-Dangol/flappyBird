@@ -2,10 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Bird extends JPanel {
-    int x=50;
-    int y =260;
+    int x=0;
+    int y =0;
     Bird(){
-//        setSize(100,100);
+
     }
     @Override
     public void paint(Graphics g) {
@@ -14,13 +14,12 @@ public class Bird extends JPanel {
         g.fillOval(x,y,50,50);
     }
     void moveBird(){
-        y+=3;
+        setLocation(getX(),getY()+3);
         repaint();
 
     }
     void jump(){
-        x+=3;
-        y-=20;
+        setLocation(getX(),getY()-15);
         repaint();
     }
 }
