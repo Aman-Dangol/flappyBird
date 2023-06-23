@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Bird extends JPanel {
+public class Bird extends  JLabel {
     int x=0;
     int y =0;
     int fallingSpeed=5;
@@ -15,9 +15,8 @@ public class Bird extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        setBackground(null);
         g.setColor(Color.red);
-        g.fillOval(x,y,50,50);
+        g.fillOval(x,y,getWidth(),getHeight());
     }
     void moveBird(){
         setLocation(getX(),getY()+fallingSpeed);
