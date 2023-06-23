@@ -5,22 +5,23 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Platform extends JFrame implements ActionListener , KeyListener {
+public class Platform extends JFrame implements ActionListener , KeyListener{
     public static int width=500;
     public static int height=600;
     Bird bird = new Bird();
     Rectangle rectangle = new Rectangle();
-    Timer timer;
+     Timer timer;
+
     Platform(){
+        setTitle("flappy bird");
         setLayout(null);
         setSize(width,height);
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.green);
-        timer= new Timer(20,this);
+        timer= new Timer(50,this);
         add(bird);
-        bird.setSize(50,50);
+        bird.setSize(50,55);
         bird.setLocation(80,100);
-
 
         add(rectangle);
         rectangle.setSize(80,130);
