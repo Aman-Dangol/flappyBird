@@ -6,42 +6,45 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Platform extends JFrame implements ActionListener , KeyListener{
-    public static int width=500;
-    public static int height=600;
+    public static int WIDTH=500;
+    public static int HEIGHT=600;
     Bird bird = new Bird();
     RectangleUp rectangleUp = new RectangleUp();
     RectangleDown rectangleDown = new RectangleDown();
      Timer timer;
 
     Platform(){
+        setResizable(false);
         setTitle("flappy bird");
         setLayout(null);
-        setSize(width,height);
+        setSize(WIDTH,HEIGHT);
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.green);
-        timer= new Timer(50,this);
+        timer= new Timer(30,this);
         add(bird);
-        bird.setSize(50,50);
+        bird.setSize(30,30);
         bird.setLocation(80,100);
-
+    //setting up top obstacle
         add(rectangleUp);
         rectangleUp.setSize(80,230);
-        rectangleUp.setLocation(200,0);
-
+        rectangleUp.setLocation(300,0);
+        //setting up bottom obstacle
         add(rectangleDown);
-
         rectangleDown.setSize(80,130);
-        rectangleDown.setLocation(200,600-130);
+        rectangleDown.setLocation(300,600-130);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //game starts
         timer.start();
+        setVisible(true);
         addKeyListener(this);
 
-        setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
             bird.moveBird();
+        rectangleUp.move();
+        rectangleDown.move();
     }
 
     @Override
