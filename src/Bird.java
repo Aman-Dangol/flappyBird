@@ -15,7 +15,7 @@ public class Bird extends  JLabel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.setColor(Color.red);
+        g.setColor(Color.white);
         g.fillOval(x,y,getWidth(),getHeight());
     }
     void moveBird(){

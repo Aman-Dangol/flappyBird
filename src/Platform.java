@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 public class Platform extends JFrame implements ActionListener , KeyListener{
     public static int WIDTH=500;
@@ -14,7 +15,7 @@ public class Platform extends JFrame implements ActionListener , KeyListener{
      Timer timer;
 
     Platform(){
-        setResizable(false);
+//        setResizable(false);
         setTitle("flappy bird");
         setLayout(null);
         setSize(WIDTH,HEIGHT);
@@ -23,7 +24,7 @@ public class Platform extends JFrame implements ActionListener , KeyListener{
         timer= new Timer(30,this);
         add(bird);
         bird.setSize(30,30);
-        bird.setLocation(80,100);
+        bird.setLocation(80,250);
     //setting up top obstacle
         add(rectangleUp);
         rectangleUp.setSize(80,230);
@@ -45,6 +46,12 @@ public class Platform extends JFrame implements ActionListener , KeyListener{
             bird.moveBird();
         rectangleUp.move();
         rectangleDown.move();
+        if (rectangleUp.getX()<-rectangleUp.getWidth()){
+            rectangleUp.setSize(80,new Random().nextInt(20,291));
+            rectangleUp.setLocation(getWidth(),0);
+            rectangleDown.setSize(80,new Random().nextInt(20,291));
+            rectangleDown.setLocation(getWidth(),getHeight()-rectangleDown.getHeight());
+        }
     }
 
     @Override
