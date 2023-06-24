@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Rectangle extends JPanel {
+public class RectangleUp extends JPanel {
     int x=0;
     int y=0;
     int width=getWidth();
     int height= getHeight();
-    Rectangle(){
+    RectangleUp(){
 
     }
 

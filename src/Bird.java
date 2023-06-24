@@ -7,7 +7,7 @@ public class Bird extends  JLabel {
     int x=0;
     int y =0;
     int fallingSpeed=5;
-    int jumpSpeed=-20;
+    int jumpSpeed=-10;
     int gravity =1;
 
     Bird(){

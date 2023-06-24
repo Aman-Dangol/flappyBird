@@ -9,7 +9,8 @@ public class Platform extends JFrame implements ActionListener , KeyListener{
     public static int width=500;
     public static int height=600;
     Bird bird = new Bird();
-    Rectangle rectangle = new Rectangle();
+    RectangleUp rectangleUp = new RectangleUp();
+    RectangleDown rectangleDown = new RectangleDown();
      Timer timer;
 
     Platform(){
@@ -20,12 +21,17 @@ public class Platform extends JFrame implements ActionListener , KeyListener{
         getContentPane().setBackground(Color.green);
         timer= new Timer(50,this);
         add(bird);
-        bird.setSize(50,55);
+        bird.setSize(50,50);
         bird.setLocation(80,100);
 
-        add(rectangle);
-        rectangle.setSize(80,130);
-        rectangle.setLocation(200,0);
+        add(rectangleUp);
+        rectangleUp.setSize(80,230);
+        rectangleUp.setLocation(200,0);
+
+        add(rectangleDown);
+
+        rectangleDown.setSize(80,130);
+        rectangleDown.setLocation(200,600-130);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         timer.start();
         addKeyListener(this);
